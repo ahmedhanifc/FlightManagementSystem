@@ -14,6 +14,13 @@ public class Airplane {
 		this.capacity = capacity;
 		this.availability = true;
 	}
+	public void incrementCapacity() {
+		capacity++;
+	}
+	public void decrementCapacity() {
+		capacity --;
+	}
+	
 	public String getModel() {
 		return model;
 	}

@@ -30,5 +30,7 @@ public enum Nationality {
     NIGERIAN,
     EGYPTIAN,
     PAKISTANI,
-    QATARI
+    QATARI,
+    ALGERIAN,
+    TUNISIAN
 }

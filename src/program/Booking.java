@@ -3,13 +3,13 @@ package program;
 import java.util.Objects;
 
 public class Booking {
-	private double bookingNumber;
+	private int bookingNumber;
 	private Customer customer;
 	private Seat seat;
 	private Flight flight;
 	private TicketType ticketType;
 	
-	public Booking(double bookingNumber, Customer customer, Seat seat, Flight flight, TicketType ticketType) {
+	public Booking(int bookingNumber, Customer customer, Seat seat, Flight flight, TicketType ticketType) {
 		super();
 		this.bookingNumber = bookingNumber;
 		this.customer = customer;
@@ -26,7 +26,7 @@ public class Booking {
 	public void setTicketType(TicketType ticketType) {
 		this.ticketType = ticketType;
 	}
-	public void setBookingNumber(double bookingNumber) {
+	public void setBookingNumber(int bookingNumber) {
 		this.bookingNumber = bookingNumber;
 	}
 	public Customer getCustomer() {

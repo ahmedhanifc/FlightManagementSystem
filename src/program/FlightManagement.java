@@ -9,6 +9,7 @@ public class FlightManagement {
 	private static HashMap<String, Pilot> pilots = new HashMap<String, Pilot>();
 	private static HashMap<String, CrewMember> crewMembers = new HashMap<String, CrewMember>();
 	private static HashMap<String, Flight> flights = new HashMap<String, Flight>();
+	private static HashMap<String, Customer> customers = new HashMap<String, Customer>();
 	
 	public static void addAirplanes(Airplane airplane) {
 		if(!Utility.addIfNotExistsCollection(airplanes, airplane)) {
@@ -178,16 +179,23 @@ public class FlightManagement {
 
 	public static void unnassignCrewMembersToFlight() {}
 	
-	public static void bookFlights(ArrayList<Customer> customers, Flight flight) {
+	public static void bookFlight(ArrayList<Customer> customersList, Flight flight) {
 		if(flight==null) return;
-		if(customers.isEmpty()) return;
-		if(flight.getAirplane().getCapacity() < customers.size()) return;
+		if(customersList.isEmpty()) return;
+		if(flight.getAirplane().getCapacity() < customersList.size()) return;
 		
-		ArrayList<Booking> bookings = new ArrayList<Booking>();
-		for(Customer customer:customers) {
-			double bookingNumber = Math.floor(100000 + Math.random() * 90000);
-			new Booking(bookingNumber, customer, new Seat("A4", SeatPosition.WINDOW), flight, TicketType.ECONOMY);
+		for(Customer customer:customersList) {
+			int bookingNumber = (int)Math.floor(100000 + Math.random() * 90000);
+			customer.getBookings().put(bookingNumber, new Booking(bookingNumber, customer, new Seat("A4", SeatPosition.WINDOW), flight, TicketType.ECONOMY));
+			customers.put(customer.getPassportNumber(), customer);
+			flight.getAirplane().setCapacity(flight.getAirplane().getCapacity()-1);
 		}
+	}
+	public static HashMap<String, Customer> getCustomers() {
+		return customers;
+	}
+	public static void setCustomers(HashMap<String, Customer> customers) {
+		FlightManagement.customers = customers;
 	}
 	
 		
