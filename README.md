@@ -1,181 +1,158 @@
-Flight Booking System
+# Flight Booking System
 
-Project Overview
+## Project Overview
 
-The Flight Booking System is a console-based application designed to simulate the management of a small airline's flight booking operations. Developed using Java and Object-Oriented Programming (OOP) principles, the system allows customers to search for and book flights, manage their bookings, and enables airline staff to handle flights, passengers, and schedules.
+The Flight Booking System is a console-based application designed to simulate the management of a small airline's flight booking operations. Developed using **Java** and **Object-Oriented Programming (OOP)** principles, the system allows customers to search for and book flights, manage their bookings, and enables airline staff to handle flights, passengers, and schedules.
 
-Key Features
+---
 
-Book a Flight
+## Key Features
 
-Search for flights based on origin, destination, and date.
+1. **Book a Flight**  
+   - Search for flights based on origin, destination, and date.
+   - Book flights by providing personal details and seat preferences.
+   - Ensure seat availability before confirming a booking.
 
-Book flights by providing personal details and seat preferences.
+2. **Cancel a Booking**  
+   - Cancel existing bookings using the booking reference number.
+   - Update flight seat availability after cancellation.
 
-Ensure seat availability before confirming a booking.
+3. **Display Available Flights**  
+   - View flights based on specified criteria.
+   - See details such as flight number, timings, available seats, and crew.
 
-Cancel a Booking
+4. **Check Flight Status**  
+   - Access flight status details, including departure and arrival times.
+   - Track delays or updates.
 
-Cancel existing bookings using the booking reference number.
+5. **Manage Flight Schedules**  
+   - Create, update, and manage flight schedules.
+   - Assign pilots and crew members to flights.
 
-Update flight seat availability after cancellation.
+6. **View Customer Details**  
+   - Airline staff can view customer booking histories and details.
 
-Display Available Flights
+---
 
-View flights based on specified criteria.
+## Core Components
 
-See details such as flight number, timings, available seats, and crew.
+### Classes and Functionalities
 
-Check Flight Status
+1. **Person.java**  
+   - Abstract base class for `Customer`, `Pilot`, and `CrewMember`.
+   - Attributes: `name`, `dob`, `passportNumber`, `nationality`.
+   - Abstract method: `printRole()`.
 
-Access flight status details, including departure and arrival times.
+2. **Customer.java**  
+   - Inherits from `Person`.
+   - Attributes: `mealPreference`, `flightsUndertaken`, `bookings`.
+   - Methods: Manage customer-specific bookings.
 
-Track delays or updates.
+3. **Pilot.java**  
+   - Inherits from `CrewMember`.
+   - Attributes: `licenseType`, `flightHours`.
+   - Methods: Manage pilot-specific data and roles.
 
-Manage Flight Schedules
+4. **Flight.java**  
+   - Represents flight information.
+   - Attributes: `flightNumber`, `origin`, `destination`, `departure/arrival times`, `crew`, and `bookings`.
+   - Methods: Manage flight schedules, crew, and bookings.
 
-Create, update, and manage flight schedules.
+5. **Booking.java**  
+   - Represents customer bookings.
+   - Attributes: `bookingNumber`, `customer`, `seat`, `flight`, `ticketType`.
 
-Assign pilots and crew members to flights.
+6. **FlightManagement.java**  
+   - Handles operations such as:
+     - Adding/removing airplanes, flights, and crew.
+     - Assigning resources to flights.
+     - Managing flight bookings and schedules.
 
-View Customer Details
+7. **Utility.java**  
+   - Provides helper methods for managing collections and maps.
+   - Examples: `addIfNotExistsCollection`, `searchCollection`.
 
-Airline staff can view customer booking histories and details.
+8. **MainFlightManagementSystem.java**  
+   - Entry point for the application.
+   - Implements a menu-driven interface for interacting with the system.
+   - Handles user input and calls the relevant operations.
 
-Core Components
+---
 
-Classes and Functionalities
+## Development Details
 
-Person.java
+### Tools and Technologies
 
-Abstract base class for Customer, Pilot, and CrewMember.
+- **Programming Language**: Java
+- **OOP Concepts**: Inheritance, Polymorphism, Encapsulation, Abstraction
+- **Data Structures**: HashMap, ArrayList, HashSet
 
-Attributes: name, dob, passportNumber, nationality.
+### Input/Output
 
-Abstract method: printRole().
+- **Input**: User interacts via console using the `Scanner` class.
+- **Output**: Displays flight and booking details on the console.
 
-Customer.java
+---
 
-Inherits from Person.
+## How to Run the Application
 
-Attributes: mealPreference, flightsUndertaken, bookings.
+1. **Setup**
+   - Ensure Java is installed on your system.
+   - Clone the repository or download the source code.
 
-Methods: Manage customer-specific bookings.
+2. **Compile and Run**
+   ```bash
+   javac program/*.java
+   java program.MainFlightManagementSystem
+   ```
 
-Pilot.java
+3. **Interact with the System**
+   - Use the console menu to navigate functionalities like booking flights, managing schedules, and viewing details.
 
-Inherits from CrewMember.
+---
 
-Attributes: licenseType, flightHours.
+## Sample Interactions
 
-Methods: Manage pilot-specific data and roles.
+### Main Menu
+1. Display Available Flights  
+2. Book a Flight  
+3. View Booked Flights  
+4. Cancel Booked Flight  
+5. Exit  
 
-Flight.java
+### Booking Process
+- Input origin and destination cities.
+- Select a flight and provide customer details.
+- Confirm booking if seats are available.
 
-Represents flight information.
+### Manage Flights
+- Assign pilots, co-pilots, and crew members.
+- View flight details.
+- Update schedules.
 
-Attributes: flightNumber, origin, destination, departure/arrival times, crew, and bookings.
+---
 
-Methods: Manage flight schedules, crew, and bookings.
+## Future Enhancements
 
-Booking.java
+1. Integrate with a database for persistent data storage.
+2. Add a graphical user interface (GUI).
+3. Include real-time flight updates and notifications.
 
-Represents customer bookings.
+---
 
-Attributes: bookingNumber, customer, seat, flight, ticketType.
+## Contributing
 
-FlightManagement.java
+Contributions are welcome! Feel free to fork the repository, create new branches, and submit pull requests.
 
-Handles operations such as:
+---
 
-Adding/removing airplanes, flights, and crew.
+## License
 
-Assigning resources to flights.
+This project is licensed under the [MIT License](LICENSE).
 
-Managing flight bookings and schedules.
+---
 
-Utility.java
+## Acknowledgments
 
-Provides helper methods for managing collections and maps.
-
-Examples: addIfNotExistsCollection, searchCollection.
-
-MainFlightManagementSystem.java
-
-Entry point for the application.
-
-Implements a menu-driven interface for interacting with the system.
-
-Handles user input and calls the relevant operations.
-
-Development Details
-
-Tools and Technologies
-
-Programming Language: Java
-
-OOP Concepts: Inheritance, Polymorphism, Encapsulation, Abstraction
-
-Data Structures: HashMap, ArrayList, HashSet
-
-Input/Output
-
-Input: User interacts via console using the Scanner class.
-
-Output: Displays flight and booking details on the console.
-
-How to Run the Application
-
-Setup
-
-Ensure Java is installed on your system.
-
-Clone the repository or download the source code.
-
-Compile and Run
-
-javac program/*.java
-java program.MainFlightManagementSystem
-
-Interact with the System
-
-Use the console menu to navigate functionalities like booking flights, managing schedules, and viewing details.
-
-Sample Interactions
-
-Main Menu
-
-Display Available Flights
-
-Book a Flight
-
-View Booked Flights
-
-Cancel Booked Flight
-
-Exit
-
-Booking Process
-
-Input origin and destination cities.
-
-Select a flight and provide customer details.
-
-Confirm booking if seats are available.
-
-Manage Flights
-
-Assign pilots, co-pilots, and crew members.
-
-View flight details.
-
-Update schedules.
-
-Future Enhancements
-
-Integrate with a database for persistent data storage.
-
-Add a graphical user interface (GUI).
-
-Include real-time flight updates and notifications.
+This project is part of an academic assignment to practice OOP concepts. Special thanks to the project guidelines for providing a structured framework for implementation.
 
