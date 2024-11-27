@@ -140,18 +140,6 @@ The Flight Booking System is a console-based application designed to simulate th
 
 ---
 
-## Contributing
-
-Contributions are welcome! Feel free to fork the repository, create new branches, and submit pull requests.
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 ## Acknowledgments
 
 This project is part of an academic assignment to practice OOP concepts. Special thanks to the project guidelines for providing a structured framework for implementation.
